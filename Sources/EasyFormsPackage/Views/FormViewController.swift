@@ -42,8 +42,8 @@ public struct FormField {
 }
 
 class FormViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+       
+    private var tableView: UITableView!
     
     public var fields: [FormField] = [] {
         didSet {
@@ -54,12 +54,27 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        setTableViewController()
+        
+    }
+    
+    func setTableViewController() {
+        let tableView = UITableView()
+        self.tableView = tableView
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         ["TextEntryTableViewCell", "ToggleButtonTableViewCell"].forEach( {
-            tableView.register(UINib.init(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)
+            self.tableView.register(UINib.init(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)
         })
+        
+        let topConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+        self.tableView.addConstraints([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
+        self.view.addSubview(self.tableView)
     }
 
 }
