@@ -55,7 +55,6 @@ class FormViewController: UIViewController {
         super.viewDidLoad()
         
         setTableViewController()
-        
     }
     
     func setTableViewController() {
@@ -70,9 +69,14 @@ class FormViewController: UIViewController {
         })
         
         let topConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
+        topConstraint.isActive = true
         let leadingConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+        leadingConstraint.isActive = true
         let trailingConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+        trailingConstraint.isActive = true
         let bottomConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+        bottomConstraint.isActive = true
+        
         self.tableView.addConstraints([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
         self.view.addSubview(self.tableView)
     }
