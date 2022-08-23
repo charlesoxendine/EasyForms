@@ -30,7 +30,7 @@ enum FormFieldTypes {
     }
 }
 
-struct FormField {
+public struct FormField {
     var fieldTitle: String!
     var fieldID: String!
     var fieldType: FormFieldTypes!
