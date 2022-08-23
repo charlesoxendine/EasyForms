@@ -10,11 +10,9 @@ public struct EasyFormsPackage {
     }
     
     public static func getFormViewController(parentViewController: UIViewController, fields: [FormField]) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "FormView", bundle: nil)
-        if let newVC = storyboard.instantiateViewController(withIdentifier: "FormViewController") as? FormViewController {
-            newVC.fields = fields
-            parentViewController.present(newVC, animated: true)
-        }
+        let newVC =  FormViewController()
+        newVC.fields = fields
+        parentViewController.present(newVC, animated: true)
     }
     
 }
