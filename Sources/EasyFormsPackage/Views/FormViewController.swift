@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum FormFieldTypes {
+public enum FormFieldTypes {
     case textEntry
     case toggleButton
     
@@ -31,6 +31,11 @@ enum FormFieldTypes {
 }
 
 public struct FormField {
+    
+    public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes) {
+        
+    }
+    
     var fieldTitle: String!
     var fieldID: String!
     var fieldType: FormFieldTypes!
