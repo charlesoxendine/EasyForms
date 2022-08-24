@@ -20,9 +20,12 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "EasyFormsPackage",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .copy("EasyFormsPackage/FieldEntryTableViewCell.xib")
+            ]),
         .testTarget(
-            name: "EasyFormsPackageTests",
+                name: "EasyFormsPackageTests",
             dependencies: ["EasyFormsPackage"]),
     ]
 )
