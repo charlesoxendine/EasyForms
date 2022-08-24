@@ -31,14 +31,15 @@ public enum FormFieldTypes {
 }
 
 public struct FormField {
-    
-    public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes) {
-        
-    }
-    
     var fieldTitle: String!
     var fieldID: String!
     var fieldType: FormFieldTypes!
+    
+    public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes) {
+        self.fieldType = fieldType
+        self.fieldID = fieldID
+        self.fieldType = fieldType
+    }
 }
 
 class FormViewController: UIViewController {
