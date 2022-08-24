@@ -67,13 +67,12 @@ class FormViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        self.view.addSubview(self.tableView)
-        
+                
         ["TextEntryTableViewCell", "ToggleButtonTableViewCell"].forEach( {
             self.tableView.register(UINib.init(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)
         })
         
+        self.view.addSubview(tableView)
         let topConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .top, relatedBy: .equal, toItem: self.tableView.superview, attribute: .top, multiplier: 1, constant: 0)
         topConstraint.isActive = true
         let leadingConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .leading, relatedBy: .equal, toItem: self.tableView.superview, attribute: .leading, multiplier: 1, constant: 0)
@@ -83,7 +82,7 @@ class FormViewController: UIViewController {
         let bottomConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .bottom, relatedBy: .equal, toItem: self.tableView.superview, attribute: .bottom, multiplier: 1, constant: 0)
         bottomConstraint.isActive = true
         
-        self.tableView.addConstraints([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
+        self.view.addConstraints([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
         self.tableView.reloadData()
     }
 
