@@ -14,7 +14,7 @@ public enum FormFieldTypes {
     func getTableCellIdentifier() -> String {
         switch self {
         case .textEntry:
-            return "TextEntryTableViewCell"
+            return "FieldEntryTableViewCell"
         case .toggleButton:
             return "ToggleButtonTableViewCell"
         }
