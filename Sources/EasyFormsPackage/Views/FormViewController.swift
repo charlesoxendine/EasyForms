@@ -103,7 +103,7 @@ class FormViewController: UIViewController {
             self.tableView.register(UINib.init(nibName: $0, bundle: .module), forCellReuseIdentifier: $0)
         })
         
-        self.footerView = Bundle.main.loadNibNamed("SingleButtonFooterView", owner: self, options: nil)?.first as? SingleButtonFooterView
+        self.footerView = Bundle.module.loadNibNamed("SingleButtonFooterView", owner: self, options: nil)?.first as? SingleButtonFooterView
         footerView?.delegate = self
         footerView?.autoresizingMask = []
         tableView.tableFooterView = footerView
@@ -144,4 +144,12 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         let formView = self.fields[indexPath.row]
         return CGFloat(formView.fieldType.getFieldHeight())
     }
+}
+
+extension FormViewController: singleButtonFooterViewDelegate {
+
+    func didTapButton() {
+        print("Tapped done")
+    }
+
 }
