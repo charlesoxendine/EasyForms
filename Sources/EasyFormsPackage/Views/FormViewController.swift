@@ -70,7 +70,7 @@ class FormViewController: UIViewController {
         self.tableView.dataSource = self
                 
         ["FieldEntryTableViewCell", "ToggleButtonTableViewCell"].forEach( {
-            self.tableView.register(UINib.init(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)
+            self.tableView.register(UINib.init(nibName: $0, bundle: .module), forCellReuseIdentifier: $0)
         })
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
