@@ -47,12 +47,16 @@ class FormViewController: UIViewController {
     
     public var fields: [FormField] = [] {
         didSet {
-            
+            if tableView != nil {
+                tableView.reloadData()
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.cyan
         
         setTableViewController()
     }
@@ -63,6 +67,8 @@ class FormViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.view.addSubview(self.tableView)
         
         ["TextEntryTableViewCell", "ToggleButtonTableViewCell"].forEach( {
             self.tableView.register(UINib.init(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)
@@ -78,7 +84,7 @@ class FormViewController: UIViewController {
         bottomConstraint.isActive = true
         
         self.tableView.addConstraints([topConstraint, leadingConstraint, trailingConstraint, bottomConstraint])
-        self.view.addSubview(self.tableView)
+        self.tableView.reloadData()
     }
 
 }
