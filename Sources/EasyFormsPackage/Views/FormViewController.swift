@@ -95,7 +95,8 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let formView = self.fields[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: formView.fieldType.getTableCellIdentifier())
+        let cell = tableView.dequeueReusableCell(withIdentifier: formView.fieldType.getTableCellIdentifier()) as? FormTableViewCell
+        cell!.formView = formView
         return cell!
     }
     

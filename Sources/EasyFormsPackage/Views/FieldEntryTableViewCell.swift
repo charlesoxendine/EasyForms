@@ -11,7 +11,7 @@ protocol FieldEntryTableViewCellDelegate {
     func cellTapped(_ cell: UITableViewCell)
 }
 
-class FieldEntryTableViewCell: UITableViewCell {
+class FieldEntryTableViewCell: FormTableViewCell {
 
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -21,9 +21,9 @@ class FieldEntryTableViewCell: UITableViewCell {
     
     var cellDelegate: FieldEntryTableViewCellDelegate?
 
-    var delegate: UITextFieldDelegate? {
+    var textDelegate: UITextFieldDelegate? {
         didSet {
-            textField.delegate = delegate
+            textField.delegate = textDelegate
         }
     }
     
