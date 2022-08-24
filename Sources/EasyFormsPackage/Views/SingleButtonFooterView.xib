@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SingleButtonFooterView" customModule="lifeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtU-o1-B0M">
+                    <rect key="frame" x="20" y="15" width="374" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="X3C-PJ-T9Z"/>
+                    </constraints>
+                    <state key="normal" title="Save" image="arrow"/>
+                    <connections>
+                        <action selector="buttonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="FBp-tb-3uk"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="RtU-o1-B0M" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="aZV-4c-ARx"/>
+                <constraint firstItem="RtU-o1-B0M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="jXF-7C-NGe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RtU-o1-B0M" secondAttribute="trailing" constant="20" id="lYR-Hh-B0T"/>
+                <constraint firstAttribute="bottom" secondItem="RtU-o1-B0M" secondAttribute="bottom" constant="15" id="pdo-4Y-dvF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mainButton" destination="RtU-o1-B0M" id="inf-Wh-8ek"/>
+            </connections>
+            <point key="canvasLocation" x="5.7971014492753632" y="-201.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

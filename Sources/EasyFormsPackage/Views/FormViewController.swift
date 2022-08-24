@@ -46,6 +46,8 @@ class FormViewController: UIViewController {
        
     private var tableView: UITableView!
     
+    var footerView: SingleButtonFooterView?
+    
     public var fields: [FormField] = [] {
         didSet {
             if tableView != nil {
@@ -100,6 +102,11 @@ class FormViewController: UIViewController {
         ["FieldEntryTableViewCell"].forEach( {
             self.tableView.register(UINib.init(nibName: $0, bundle: .module), forCellReuseIdentifier: $0)
         })
+        
+        self.footerView = Bundle.main.loadNibNamed("SingleButtonFooterView", owner: self, options: nil)?.first as? SingleButtonFooterView
+        footerView?.delegate = self
+        footerView?.autoresizingMask = []
+        tableView.tableFooterView = footerView
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
