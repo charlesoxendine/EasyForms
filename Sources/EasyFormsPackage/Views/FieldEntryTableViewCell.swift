@@ -1,8 +1,8 @@
 //
-//  PCFieldEntryTableViewCell.swift
-//  ProjectChef
+//  FieldEntryTableViewCell.swift
+//  EasyForms
 //
-//  Created by David Robertson on 6/21/21.
+//  Created by Charlie Oxendine on 6/21/21.
 //
 
 import UIKit
