@@ -12,7 +12,8 @@ public struct EasyFormsPackage {
     public static func getFormViewController(parentViewController: UIViewController, fields: [FormField]) {
         let newVC =  FormViewController()
         newVC.fields = fields
-        parentViewController.present(newVC, animated: true)
+        let navigationController = UINavigationController(rootViewController: newVC)
+        parentViewController.present(navigationController, animated: true)
     }
     
 }
