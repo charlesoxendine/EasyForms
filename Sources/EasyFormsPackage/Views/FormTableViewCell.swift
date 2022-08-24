@@ -12,4 +12,6 @@ class FormTableViewCell: UITableViewCell {
     
     var formView: FormField?
     
+    var formThemeColor: UIColor! = UIColor.black
+    
 }

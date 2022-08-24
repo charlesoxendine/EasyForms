@@ -54,6 +54,12 @@ class FormViewController: UIViewController {
         }
     }
     
+    public var formThemeColor: UIColor! = UIColor.black {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -117,6 +123,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         let formView = self.fields[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: formView.fieldType.getTableCellIdentifier()) as? FormTableViewCell
         cell!.formView = formView
+        cell?.formThemeColor = self.formThemeColor
         return cell!
     }
     

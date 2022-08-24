@@ -35,6 +35,8 @@ class FieldEntryTableViewCell: FormTableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.textField.tintColor = self.formThemeColor
+        self.textField.tintColorDidChange()
     }
     
     override func awakeFromNib() {
