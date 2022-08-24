@@ -60,6 +60,24 @@ class FormViewController: UIViewController {
         self.view.backgroundColor = UIColor.cyan
         
         setTableViewController()
+        setBackButtonOnNav()
+    }
+    
+    private func setBackButtonOnNav() {
+        let backbutton = UIButton(type: .custom)
+        backbutton.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal)
+        backbutton.addTarget(self, action: #selector(self.backButtonTapped), for: .touchUpInside)
+        backbutton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+    }
+    
+    @objc func backButtonTapped() {
+        if self.navigationController != nil {
+            self.navigationController!.popViewController(animated: true )
+        } else {
+            self.dismiss(animated: true)
+        }
     }
     
     func setTableViewController() {

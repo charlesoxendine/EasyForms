@@ -13,6 +13,7 @@ public struct EasyFormsPackage {
         let newVC =  FormViewController()
         newVC.fields = fields
         let navigationController = UINavigationController(rootViewController: newVC)
+        navigationController.modalPresentationStyle = .fullScreen
         parentViewController.present(navigationController, animated: true)
     }
     

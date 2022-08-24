@@ -27,6 +27,12 @@ class FieldEntryTableViewCell: FormTableViewCell {
         }
     }
     
+    override var formView: FormField? {
+        didSet {
+            self.captionLabel.text = formView?.fieldTitle
+        }
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
     }
