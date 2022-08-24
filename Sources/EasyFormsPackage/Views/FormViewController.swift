@@ -69,7 +69,7 @@ class FormViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
                 
-        ["FieldEntryTableViewCell", "ToggleButtonTableViewCell"].forEach( {
+        ["FieldEntryTableViewCell"].forEach( {
             self.tableView.register(UINib.init(nibName: $0, bundle: .module), forCellReuseIdentifier: $0)
         })
         
