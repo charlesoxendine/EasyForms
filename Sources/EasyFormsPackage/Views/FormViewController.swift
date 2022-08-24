@@ -56,7 +56,9 @@ class FormViewController: UIViewController {
     
     public var formThemeColor: UIColor! = UIColor.black {
         didSet {
-            self.tableView.reloadData()
+            if tableView != nil {
+                self.tableView.reloadData()
+            }
         }
     }
     
