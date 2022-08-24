@@ -79,11 +79,7 @@ class FormViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        if self.navigationController != nil {
-            self.navigationController!.popViewController(animated: true )
-        } else {
-            self.dismiss(animated: true)
-        }
+        self.navigationController!.dismiss(animated: true)
     }
     
     func setTableViewController() {
