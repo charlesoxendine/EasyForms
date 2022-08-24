@@ -72,7 +72,7 @@ class FormViewController: UIViewController {
             self.tableView.register(UINib.init(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)
         })
         
-        tableView.autoresizingMask = []
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(tableView)
         let topConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .top, relatedBy: .equal, toItem: self.tableView.superview, attribute: .top, multiplier: 1, constant: 0)
