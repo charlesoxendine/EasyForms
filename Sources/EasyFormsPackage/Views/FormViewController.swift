@@ -36,7 +36,7 @@ public struct FormField {
     var fieldType: FormFieldTypes!
     
     public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes) {
-        self.fieldType = fieldType
+        self.fieldTitle = fieldTitle
         self.fieldID = fieldID
         self.fieldType = fieldType
     }
