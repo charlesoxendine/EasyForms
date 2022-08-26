@@ -21,12 +21,6 @@ class FieldEntryTableViewCell: FormTableViewCell {
     
     var cellDelegate: FieldEntryTableViewCellDelegate?
 
-    var textDelegate: UITextFieldDelegate? {
-        didSet {
-            textField.delegate = textDelegate
-        }
-    }
-    
     override var formView: FormField? {
         didSet {
             self.captionLabel.text = formView?.fieldTitle
@@ -41,6 +35,8 @@ class FieldEntryTableViewCell: FormTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        textField.delegate = self
         
         captionLabel.font = UIFont.systemFont(ofSize: 18, weight: .light)
         captionLabel.textColor = UIColor.black
@@ -70,5 +66,11 @@ class FieldEntryTableViewCell: FormTableViewCell {
             textField.isSecureTextEntry = true
             showPwd.image = UIImage(named: "visiblepwd")
         }
+    }
+}
+
+extension FieldEntryTableViewCell: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.delegate?.changedResponse(response: textField.text, fieldID: self.formView?.fieldID)
     }
 }

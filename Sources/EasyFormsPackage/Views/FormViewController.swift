@@ -146,6 +146,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: formView.fieldType.getTableCellIdentifier()) as? FormTableViewCell
         cell!.formView = formView
         cell?.formThemeColor = self.formThemeColor
+        cell?.delegate = self
         return cell!
     }
     
@@ -157,6 +158,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         let formView = self.fields[indexPath.row]
         return CGFloat(formView.fieldType.getFieldHeight())
     }
+    
 }
 
 extension FormViewController: singleButtonFooterViewDelegate {
@@ -177,5 +179,13 @@ extension FormViewController: singleButtonFooterViewDelegate {
                 self.present(alert, animated: true)
             }
         })
+    }
+}
+
+extension FormViewController: FormTableViewCellDelegate {
+    func changedResponse(response: String?, fieldID: String!) {
+        if let index = self.fields.firstIndex(where: { $0.fieldID == fieldID }) {
+            self.fields[index].fieldValue = response
+        }
     }
 }
