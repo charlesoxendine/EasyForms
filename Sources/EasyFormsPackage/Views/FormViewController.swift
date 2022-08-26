@@ -31,14 +31,16 @@ public enum FormFieldTypes {
 }
 
 public struct FormField {
-    var fieldTitle: String!
-    var fieldID: String!
-    var fieldType: FormFieldTypes!
+    public var fieldTitle: String!
+    public var fieldID: String!
+    public var fieldType: FormFieldTypes!
+    public var fieldValue: String?
     
-    public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes) {
+    public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes, fieldValue: String? = nil) {
         self.fieldTitle = fieldTitle
         self.fieldID = fieldID
         self.fieldType = fieldType
+        self.fieldValue = fieldValue
     }
 }
 
