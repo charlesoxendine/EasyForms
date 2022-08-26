@@ -42,11 +42,18 @@ public struct FormField {
     }
 }
 
+protocol FormViewControllerDelegate {
+    func didSubmit(fields: [FormField], validateFieldEntries: (Bool, String?) -> ())
+    func didCancel()
+}
+
 class FormViewController: UIViewController {
        
     private var tableView: UITableView!
     
     var footerView: SingleButtonFooterView?
+    
+    var delegate: FormViewControllerDelegate?
     
     public var fields: [FormField] = [] {
         didSet {
@@ -76,6 +83,10 @@ class FormViewController: UIViewController {
         } else {
             // TODO: Fallback on earlier versions
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.delegate?.didCancel()
     }
     
     @available(iOS 13.0, *)
@@ -149,7 +160,20 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
 extension FormViewController: singleButtonFooterViewDelegate {
 
     func didTapButton() {
-        print("Tapped done")
+        delegate?.didSubmit(fields: self.fields, validateFieldEntries: { validated, errorMessage in
+            if validated == false {
+                var alert: UIAlertController!
+                
+                if errorMessage != nil {
+                    alert = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
+                } else {
+                    alert = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
+                }
+                
+                let okAction = UIAlertAction(title: "okay", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+            }
+        })
     }
-
 }
