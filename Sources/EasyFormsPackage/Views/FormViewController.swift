@@ -42,7 +42,7 @@ public struct FormField {
     }
 }
 
-protocol FormViewControllerDelegate {
+public protocol FormViewControllerDelegate {
     func didSubmit(fields: [FormField], validateFieldEntries: (Bool, String?) -> ())
     func didCancel()
 }
