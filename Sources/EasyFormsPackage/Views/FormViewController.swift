@@ -60,7 +60,7 @@ class FormViewController: UIViewController {
     public var fields: [FormField] = [] {
         didSet {
             if tableView != nil {
-                tableView.reloadData()
+                //tableView.reloadData()
             }
         }
     }
