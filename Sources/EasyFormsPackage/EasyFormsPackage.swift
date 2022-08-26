@@ -9,6 +9,12 @@ public struct EasyFormsPackage {
         newVC.formThemeColor = themeColor
         
         let navigationController = UINavigationController(rootViewController: newVC)
+        
+        guard let parentViewControllerDelegate = parentViewController as? FormViewControllerDelegate else {
+            fatalError("Make sure to make your presenting view controller conform to FormViewControllerDelegate.")
+        }
+        
+        newVC.delegate = parentViewControllerDelegate
         navigationController.modalPresentationStyle = .fullScreen
         parentViewController.present(navigationController, animated: true)
     }
