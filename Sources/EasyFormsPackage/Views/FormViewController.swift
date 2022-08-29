@@ -34,13 +34,16 @@ public struct FormField {
     public var fieldTitle: String!
     public var fieldID: String!
     public var fieldType: FormFieldTypes!
-    public var fieldValue: String?
+    
+    // RESPONSES
+    public var textResponse: String?
+    public var toggleReponse: Bool?
     
     public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes, fieldValue: String? = nil) {
         self.fieldTitle = fieldTitle
         self.fieldID = fieldID
         self.fieldType = fieldType
-        self.fieldValue = fieldValue
+        self.textResponse = fieldValue
     }
 }
 
@@ -159,6 +162,9 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         return CGFloat(formView.fieldType.getFieldHeight())
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension FormViewController: singleButtonFooterViewDelegate {
@@ -183,9 +189,10 @@ extension FormViewController: singleButtonFooterViewDelegate {
 }
 
 extension FormViewController: FormTableViewCellDelegate {
-    func changedResponse(response: String?, fieldID: String!) {
+    func changedResponse(response: Any?, fieldID: String!) {
         if let index = self.fields.firstIndex(where: { $0.fieldID == fieldID }) {
-            self.fields[index].fieldValue = response
+            self.fields[index].textResponse = response as? String
+            self.fields[index].toggleReponse = response as? Bool
         }
     }
 }

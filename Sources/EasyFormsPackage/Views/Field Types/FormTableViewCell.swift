@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol FormTableViewCellDelegate {
-    func changedResponse(response: String?, fieldID: String!)
+    func changedResponse(response: Any?, fieldID: String!)
 }
 
 class FormTableViewCell: UITableViewCell {
