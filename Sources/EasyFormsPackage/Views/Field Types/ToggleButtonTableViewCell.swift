@@ -14,7 +14,7 @@ class ToggleButtonTableViewCell: FormTableViewCell {
     
     override var formView: FormField? {
         didSet {
-            self.captionLabel.text = formView?.fieldTitle
+            //self.captionLabel.text = formView?.fieldTitle
         }
     }
     
