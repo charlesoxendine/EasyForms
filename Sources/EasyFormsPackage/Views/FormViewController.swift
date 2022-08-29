@@ -115,7 +115,7 @@ class FormViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
                 
-        ["FieldEntryTableViewCell"].forEach( {
+        ["FieldEntryTableViewCell, ToggleButtonTableViewCell"].forEach( {
             self.tableView.register(UINib.init(nibName: $0, bundle: .module), forCellReuseIdentifier: $0)
         })
         
