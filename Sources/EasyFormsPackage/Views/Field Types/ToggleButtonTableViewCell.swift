@@ -9,12 +9,12 @@ import UIKit
 
 class ToggleButtonTableViewCell: FormTableViewCell {
 
-    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var toggleButton: UISwitch!
     
     override var formView: FormField? {
         didSet {
-            //self.captionLabel.text = formView?.fieldTitle
+            self.titleLabel.text = formView?.fieldTitle
         }
     }
     
