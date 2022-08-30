@@ -1,6 +1,6 @@
 //
 //  FieldEntryTableViewCell.swift
-//  EasyForms
+//  EasyFormsPackage
 //
 //  Created by Charlie Oxendine on 6/21/21.
 //

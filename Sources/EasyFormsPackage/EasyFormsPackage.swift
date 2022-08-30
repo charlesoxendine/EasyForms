@@ -3,7 +3,7 @@ import UIKit
 
 public struct EasyFormsPackage {
     
-    public static func getFormViewController(parentViewController: UIViewController, fields: [FormField], themeColor: UIColor! = UIColor.black) {
+    public static func presentFormViewController(parentViewController: UIViewController, fields: [FormField], themeColor: UIColor! = UIColor.black) {
         let newVC =  FormViewController()
         newVC.fields = fields
         newVC.formThemeColor = themeColor
