@@ -26,7 +26,6 @@ class ToggleButtonTableViewCell: FormTableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
     
     @IBAction func buttonToggled(_ sender: Any) {

@@ -37,7 +37,7 @@ public struct FormField {
     
     // RESPONSES
     public var textResponse: String?
-    public var toggleReponse: Bool? = false 
+    public var toggleReponse: Bool? = false
     
     public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes, fieldValue: String? = nil) {
         self.fieldTitle = fieldTitle
@@ -175,7 +175,7 @@ extension FormViewController: singleButtonFooterViewDelegate {
                 var alert: UIAlertController!
                 
                 if errorMessage != nil {
-                    alert = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
+                    alert = UIAlertController(title: "Error", message: errorMessage!, preferredStyle: .alert)
                 } else {
                     alert = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
                 }
