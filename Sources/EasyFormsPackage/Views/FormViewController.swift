@@ -183,6 +183,12 @@ extension FormViewController: singleButtonFooterViewDelegate {
                 let okAction = UIAlertAction(title: "okay", style: .default)
                 alert.addAction(okAction)
                 self.present(alert, animated: true)
+            } else {
+                if self.navigationController != nil {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.dismiss(animated: true)
+                }
             }
         })
     }
