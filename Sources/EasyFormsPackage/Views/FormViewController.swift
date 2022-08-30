@@ -37,7 +37,7 @@ public struct FormField {
     
     // RESPONSES
     public var textResponse: String?
-    public var toggleReponse: Bool?
+    public var toggleReponse: Bool? = false 
     
     public init(fieldTitle: String, fieldID: String?, fieldType: FormFieldTypes, fieldValue: String? = nil) {
         self.fieldTitle = fieldTitle
