@@ -38,7 +38,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="captionLabel" destination="cTL-re-KE8" id="51G-My-IaF"/>
+                <outlet property="formFieldTitleValue" destination="cTL-re-KE8" id="51G-My-IaF"/>
                 <outlet property="toggleButton" destination="4ME-SQ-bfB" id="KqH-N4-dB1"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="105.46875"/>
