@@ -14,7 +14,10 @@ class ToggleButtonTableViewCell: FormTableViewCell {
     
     override var formView: FormField? {
         didSet {
-            formView?.toggleReponse = toggleButton.isOn
+            if formView?.toggleReponse == nil {
+                formView?.toggleReponse = toggleButton.isOn
+            }
+            
             formFieldTitleValue.text = formView?.fieldTitle
         }
     }
